@@ -1,31 +1,39 @@
 #this class calls a file named after the character that is passed trough the constructor and then it goes into the files and find a directory named like the character and calls every event it needs from there
 class Student:
+    characterDirectory = "Character"
 
     def __init__(self,name):
         import sys
         self.name = name
-        sys.path.insert(0, 'Character/'+self.name)
+        #sys.path.insert(0, 'Character/'+self.name)
         print("object created")
 
-    def event1(self):
-        import event1
-        return event1.eventClimax
 
-    def event2():
-        import event2
-        return event2.eventClimax
-    def event3():
-        import event3
-        return event3.eventClimax
-    def event4():
-        import event4
-        return event4.eventClimax
-    def event5():
-        import event5
-        return event5.eventClimax
-    def event6():
-        import event6
-        return event6.eventClimax
+    def callEvent(self, number):
+        import os
+        _locals = locals()
+        exec(open(os.path.join(Student.characterDirectory, self.name, "event{}.py".format(number))).read(), {}, _locals)
+        return _locals["eventClimax"] # this is defined in the file we just executed
+
+    # def event1(self):
+    #     import event1
+    #     return event1.eventClimax
+
+    # def event2():
+    #     import event2
+    #     return event2.eventClimax
+    # def event3():
+    #     import event3
+    #     return event3.eventClimax
+    # def event4():
+    #     import event4
+    #     return event4.eventClimax
+    # def event5():
+    #     import event5
+    #     return event5.eventClimax
+    # def event6():
+    #     import event6
+    #     return event6.eventClimax
     def eventCli1():
         import eventCli1
         return eventCli1.eventClimax

@@ -4,7 +4,11 @@ eventSuccess = { "kanndyEvent1": True , "kanndyevent2": False }
 import eventHandler
 
 student = eventHandler.Student("kanndy")
-event = student.event1()
+event = student.callEvent(1)
 eventSuccess['eventTest'] = event
 del student
+student2 = eventHandler.Student("lily")
+event2 = student2.callEvent(2)
+eventSuccess["eventTest2"] = event2
+del student2
 print(eventSuccess['eventTest'])
