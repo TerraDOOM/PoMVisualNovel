@@ -1,13 +1,11 @@
 #this class calls a file named after the character that is passed trough the constructor and then it goes into the files and find a directory named like the character and calls every event it needs from there
 class Student:
-    
 
     def __init__(self,name):
         import sys
         self.name = name
-        sys.path.insert(0, 'character/'+self.name)
+        sys.path.insert(0, 'Character/'+self.name)
         print("object created")
-        
 
     def event1(self):
         import event1
@@ -39,7 +37,7 @@ class Student:
         return goodEnd.eventClimax
     def badEnd():
         import badEnd
-		return badEnd.eventClimax
-#when you are done you destroy the object and we will jsut remake it later when we re need it so that we don't have code loaded tht is now uwseless since the event passed already
+        return badEnd.eventClimax
+    #when you are done you destroy the object and we will just remake it later when we re need it so that we don't have code loaded that is now useless since the event passed already
     def __del__(self):
         print("destroyed")
