@@ -1,3 +1,7 @@
 __pycache__/
 *.pyc
 Characters/**/__pycache__/
+*.rpyc
+errors.txt
+log.txt
+tmp/
