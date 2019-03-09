@@ -17,7 +17,7 @@ def execScript(characterName, scriptName, extract=[]):
      scriptName: the script that we wish to execute
      extract: an array of variable names that we wish to extract out of the script execution, can be empty if we don't want anything
      """
-     to_extract = {} #locals() # get a copy of the local namespace
+     to_extract = {} # make an empty "namespace"
      exec(open(
           # using os.path.join to make sure we get correct behaviour regardless of OS
           os.path.join(
@@ -25,7 +25,7 @@ def execScript(characterName, scriptName, extract=[]):
                characterName,
                scriptName + ".py"
           )
-     ).read(), globals(), to_extract) # read in the file, then hand it the local namespace. No idea why we need to do this, and it's probably a bad idea, but it works
+     ).read(), [], to_extract) # read in the file, then hand it an empty local namespace that it can fill.
      return [to_extract[var] for var in extract] # return every local variable from script execution that was mentioned in extract
 
 
